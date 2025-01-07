@@ -64,3 +64,39 @@ public class ArrayPermutationChecker {
         return Arrays.equals(arr1, arr2);
     }
 }
+
+
+import java.util.Scanner;
+
+public class DiagonalSum {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Input the size of the square matrix
+        System.out.print("Enter the size of the matrix (n x n): ");
+        int n = scanner.nextInt();
+
+        // Declare and input the square matrix
+        int[][] matrix = new int[n][n];
+        System.out.println("Enter the elements of the matrix:");
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                matrix[i][j] = scanner.nextInt();
+            }
+        }
+
+        // Calculate the diagonal sums
+        int primaryDiagonalSum = 0, secondaryDiagonalSum = 0;
+        for (int i = 0; i < n; i++) {
+            primaryDiagonalSum += matrix[i][i]; // Elements on the primary diagonal
+            secondaryDiagonalSum += matrix[i][n - 1 - i]; // Elements on the secondary diagonal
+        }
+
+        // Output the results
+        System.out.println("Primary Diagonal Sum: " + primaryDiagonalSum);
+        System.out.println("Secondary Diagonal Sum: " + secondaryDiagonalSum);
+
+        scanner.close();
+    }
+}
+
